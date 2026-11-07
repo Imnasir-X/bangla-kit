@@ -1,8 +1,9 @@
 name: Release
 
+# Manual until the NPM_TOKEN secret is added and "Allow GitHub Actions to create pull requests"
+# is enabled (Settings > Actions > General). Then switch back to: push: branches: [main]
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
