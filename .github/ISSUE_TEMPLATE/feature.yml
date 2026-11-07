@@ -1,0 +1,8 @@
+name: Feature request
+description: Suggest a new function or option
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes: { label: What should it do, description: Include example input and output }
+    validations: { required: true }

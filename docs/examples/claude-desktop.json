@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "bangla-kit": { "command": "npx", "args": ["-y", "bangla-kit-mcp"] }
+  }
+}

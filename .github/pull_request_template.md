@@ -1,0 +1,3 @@
+- [ ] Tests added or updated
+- [ ] `pnpm changeset` added
+- [ ] Word changes cite a source and are confirmed by a second native speaker

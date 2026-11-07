@@ -1,0 +1,11 @@
+name: Bug report
+description: Something crashes or behaves unexpectedly
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: What happened, description: Code to reproduce and the output }
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes: { label: Version and runtime, placeholder: "bangla-kit 0.1.0, Node 22" }

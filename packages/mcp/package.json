@@ -1,0 +1,56 @@
+{
+  "name": "bangla-kit-mcp",
+  "version": "0.0.0",
+  "description": "MCP server that gives AI assistants accurate Bangla number words, taka text, lakh/crore formatting, digits, text cleanup and Bangla dates.",
+  "license": "MIT",
+  "author": "Nasir Khan (https://github.com/Imnasir-X)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imnasir-X/bangla-kit.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://github.com/Imnasir-X/bangla-kit#readme",
+  "bugs": "https://github.com/Imnasir-X/bangla-kit/issues",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "bangla",
+    "bengali",
+    "claude",
+    "ai-tools"
+  ],
+  "type": "module",
+  "bin": {
+    "bangla-kit-mcp": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/cli.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "bangla-kit": "workspace:^",
+    "zod": "^3.25.0"
+  }
+}

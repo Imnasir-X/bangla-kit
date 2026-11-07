@@ -1,0 +1,19 @@
+name: Wrong Bangla word or date
+description: A number word, taka text or calendar date looks wrong
+labels: ["accuracy"]
+body:
+  - type: input
+    id: input
+    attributes: { label: Input, placeholder: "toWords(88)" }
+    validations: { required: true }
+  - type: input
+    id: got
+    attributes: { label: What bangla-kit returned }
+    validations: { required: true }
+  - type: input
+    id: expected
+    attributes: { label: What it should be }
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes: { label: Source (dictionary, style guide, official calendar) }
