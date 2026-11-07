@@ -10,3 +10,8 @@ export type { BanglaDate, BanglaDateOptions, DateInput } from "./date.js";
 export { parseNumeric } from "./parse.js";
 export type { NumericInput, ParsedNumber } from "./parse.js";
 export { WORDS_0_99, BANGLA_MONTHS, SEASONS, WEEKDAYS } from "./data.js";
+export { fromWords } from "./fromwords.js";
+export type { FromWordsResult } from "./fromwords.js";
+export { toOrdinal, toDateOrdinal } from "./ordinal.js";
+export type { ToOrdinalOptions } from "./ordinal.js";
+export { WORD_VARIANTS } from "./variants.js";

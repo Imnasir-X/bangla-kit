@@ -62,7 +62,12 @@ Invalid input throws a `TypeError` or `RangeError`; it never returns a wrong wor
 
 Bangla number words from 1 to 99 are irregular, so each is a hand-written entry, kept in a
 [golden fixture](packages/core/test/fixtures/words-0-99.json) that native speakers sign off before each release.
-Spelling follows the Bangla Academy standard. Found a word you disagree with? Open an issue with a source.
+Spelling follows the Bangla Academy list (for example ২৮ আটাশ, ৫২ বাহান্ন, ৮৮ আটাশি). Common alternative spellings
+are accepted when reading words back with `fromWords`, but never produced. Found a word you disagree with?
+Open an issue with a source.
+
+Every integer from 0 to 20,000, and thousands of random values up to 10^20, are checked by a round trip
+`fromWords(toWords(n)) === n`, in both the formal (এক শত, লক্ষ) and colloquial (একশো, লাখ) styles.
 
 The calendar follows the 2019 revision used in Bangladesh: ১ বৈশাখ is 14 April, ২১ ফেব্রুয়ারি is ৮ ফাল্গুন,
 ১৬ ডিসেম্বর is ১ পৌষ. The West Bengal calendar differs and is planned as an option.
@@ -71,15 +76,13 @@ The calendar follows the 2019 revision used in Bangladesh: ১ বৈশাখ i
 
 ```bash
 pnpm install
-pnpm test        # 109 tests
+pnpm test
 pnpm coverage    # 100% lines
 pnpm build
 ```
 
 ## Roadmap
 
-- Words back to numbers
-- Ordinals (প্রথম, দ্বিতীয়)
 - West Bengal calendar option
 - Bangla to Gregorian date conversion
 

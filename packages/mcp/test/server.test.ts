@@ -28,6 +28,8 @@ describe("bangla-kit MCP server", () => {
       "clean_text",
       "convert_digits",
       "format_lakh",
+      "from_words",
+      "to_ordinal",
       "to_taka",
       "to_words",
     ]);
@@ -60,6 +62,12 @@ describe("bangla-kit MCP server", () => {
     expect(d.formatted).toBe("২২ কার্তিক ১৪৩৩");
     const today = JSON.parse((await call("bangla_date", {})).text);
     expect(today.year).toBeGreaterThan(1430);
+  });
+  it("from_words", async () => {
+    expect((await call("from_words", { text: "বারো লক্ষ পঞ্চাশ হাজার" })).text).toBe("1250000");
+  });
+  it("to_ordinal", async () => {
+    expect((await call("to_ordinal", { n: 4, style: "short" })).text).toBe("৪র্থ");
   });
   it("returns a tool error for bad input instead of crashing", async () => {
     const r = await call("to_words", { number: "abc" });

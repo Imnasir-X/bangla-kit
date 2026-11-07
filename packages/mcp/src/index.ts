@@ -1,6 +1,15 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { toWords, toTaka, formatLakh, convertDigits, cleanText, toBanglaDate } from "bangla-kit";
+import {
+  toWords,
+  toTaka,
+  formatLakh,
+  convertDigits,
+  cleanText,
+  toBanglaDate,
+  fromWords,
+  toOrdinal,
+} from "bangla-kit";
 
 export const VERSION = "0.1.0";
 
@@ -130,6 +139,35 @@ export function createServer(): McpServer {
       annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
     },
     async ({ date }) => run(() => JSON.stringify(toBanglaDate(date ?? new Date()), null, 2)),
+  );
+
+  server.registerTool(
+    "from_words",
+    {
+      title: "Bangla words to number",
+      description:
+        "Read Bangla number words back into a number, e.g. from a cheque, form or transcript. Accepts common spelling variants, লাখ or লক্ষ, একশো or এক শত, negatives and দশমিক decimals. Returns the exact value as a string.",
+      inputSchema: {
+        text: z.string().describe("Bangla number words, e.g. বারো লক্ষ পঞ্চাশ হাজার."),
+      },
+      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+    },
+    async ({ text }) => run(() => fromWords(text).value),
+  );
+
+  server.registerTool(
+    "to_ordinal",
+    {
+      title: "Bangla ordinal number",
+      description:
+        "Write an ordinal in Bangla: প্রথম, দ্বিতীয় ... বিংশ, then একুশতম and so on. Short style gives ১ম, ২য়, ৪র্থ, ২১তম.",
+      inputSchema: {
+        n: z.number().int().positive().describe("Position, 1 or more."),
+        style: z.enum(["long", "short"]).optional().describe("long (default) or short."),
+      },
+      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+    },
+    async ({ n, style }) => run(() => toOrdinal(n, { style })),
   );
 
   return server;
