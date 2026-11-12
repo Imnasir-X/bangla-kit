@@ -7,7 +7,7 @@ Accurate Bangla numbers, taka, digits, text and dates for JavaScript, plus an MC
 [![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](#tests)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/bangla-kit)](https://bundlephobia.com/package/bangla-kit)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![M8ven Verified](https://m8ven.ai/badge/mcp/imnasir-x/bangla-kit?variant=verified)](https://m8ven.ai/mcp/imnasir-x/bangla-kit?s=readme)
+[![M8ven Verified](https://m8ven.ai/badge/mcp/imnasir-x-bangla-kit-kjr43z?variant=verified&v=0747e66bfe01e648472bee0da5a5f9f5)](https://m8ven.ai/mcp/imnasir-x-bangla-kit-kjr43z?s=readme)
 
 | Package                          | What it is                                              |
 | -------------------------------- | ------------------------------------------------------- |
