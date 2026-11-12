@@ -1,6 +1,6 @@
 {
   "name": "bangla-kit-mcp",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "MCP server that gives AI assistants accurate Bangla number words, taka text, lakh/crore formatting, digits, text cleanup and Bangla dates.",
   "license": "MIT",
   "author": "Nasir Khan (https://github.com/Imnasir-X)",

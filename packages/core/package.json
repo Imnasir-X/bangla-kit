@@ -1,6 +1,6 @@
 {
   "name": "bangla-kit",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Accurate, zero-dependency Bangla utilities: number to words, taka cheque text, lakh/crore formatting, digit conversion, text cleanup and the Bangladesh calendar.",
   "license": "MIT",
   "author": "Nasir Khan (https://github.com/Imnasir-X)",
