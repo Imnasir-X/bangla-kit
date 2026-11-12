@@ -51,7 +51,7 @@ export function createServer(): McpServer {
           .describe("formal: এক শত (default). colloquial: একশো."),
         lakh: z.enum(["লক্ষ", "লাখ"]).optional().describe("Word for 100,000. Default লক্ষ."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ number, hundred, lakh }) => run(() => toWords(number, { hundred, lakh })),
   );
@@ -66,7 +66,7 @@ export function createServer(): McpServer {
         amount: numeric,
         only: z.boolean().optional().describe("Append মাত্র. Default true."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ amount, only }) => run(() => toTaka(amount, { only })),
   );
@@ -88,7 +88,7 @@ export function createServer(): McpServer {
           .optional()
           .describe("Round to this many decimals."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ number, digits, fractionDigits }) =>
       run(() => formatLakh(number, { digits, fractionDigits })),
@@ -104,7 +104,7 @@ export function createServer(): McpServer {
         text: z.string().describe("Text containing digits."),
         to: z.enum(["bn", "en"]).describe("bn for Bangla digits, en for English digits."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ text, to }) => run(() => convertDigits(text, to)),
   );
@@ -119,7 +119,7 @@ export function createServer(): McpServer {
         text: z.string().describe("Text to clean."),
         digits: z.enum(["bn", "en"]).optional().describe("Also convert digits."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ text, digits }) => run(() => cleanText(text, { digits })),
   );
@@ -136,7 +136,7 @@ export function createServer(): McpServer {
           .optional()
           .describe("YYYY-MM-DD, or any ISO date-time. Default today (Asia/Dhaka)."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ date }) => run(() => JSON.stringify(toBanglaDate(date ?? new Date()), null, 2)),
   );
@@ -150,7 +150,7 @@ export function createServer(): McpServer {
       inputSchema: {
         text: z.string().describe("Bangla number words, e.g. বারো লক্ষ পঞ্চাশ হাজার."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ text }) => run(() => fromWords(text).value),
   );
@@ -165,7 +165,7 @@ export function createServer(): McpServer {
         n: z.number().int().positive().describe("Position, 1 or more."),
         style: z.enum(["long", "short"]).optional().describe("long (default) or short."),
       },
-      annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ n, style }) => run(() => toOrdinal(n, { style })),
   );
